@@ -5,7 +5,7 @@ pipeline {
     stage('git pull code') {
       steps {
         dir('golang-service/src'){
-          echo 'git pull code ${gitUrl}'
+          echo 'git pull code $gitUrl'
         }
       }
     }
