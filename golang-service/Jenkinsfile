@@ -13,13 +13,12 @@ pipeline {
     stage("run unit test") {
       steps {
         echo "run unit test"
-        sh "cd golang-service && ls"
       }
     }
     stage("build docker") {
       steps{
         echo "build docker"
-        sh "ls"
+        sh "cd golang-service && ls"
         // sh "docker build -t go-dk1 ."
       }
     }
