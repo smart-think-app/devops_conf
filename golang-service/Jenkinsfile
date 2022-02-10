@@ -19,7 +19,7 @@ pipeline {
     stage("build docker") {
       steps{
         echo "build docker"
-        sh "ls"
+        sh "docker build -t go-dk1 ."
       }
     }
     stage("deploy") {
