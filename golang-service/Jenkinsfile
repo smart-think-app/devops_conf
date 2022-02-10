@@ -13,7 +13,7 @@ pipeline {
     stage("run unit test") {
       steps {
         echo "run unit test"
-        sh 'cd src && go build'
+        sh 'ls'
       }
     }
     stage("build docker") {
