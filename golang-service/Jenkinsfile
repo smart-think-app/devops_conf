@@ -19,6 +19,7 @@ pipeline {
     stage("build docker") {
       steps{
         echo "build docker"
+        sh "ls"
       }
     }
     stage("deploy") {
