@@ -18,8 +18,8 @@ pipeline {
     stage("build docker") {
       steps{
         echo "build docker"
-        sh "cd golang-service"
-        sh "docker build -t go-dk1 ."
+        sh "cd golang-service && ls"
+        // sh "docker build -t go-dk1 ."
       }
     }
     stage("deploy") {
