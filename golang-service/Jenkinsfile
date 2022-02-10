@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("git pull code") {
       steps {
-        dir('golang-service/src'){
+        dir('golang-service'){
           echo "git pull code ${gitUrl}"
           git url: "${gitUrl}", branch: "master"
         }
@@ -13,7 +13,7 @@ pipeline {
     stage("run unit test") {
       steps {
         echo "run unit test"
-        sh "cd golang-service/src && ls"
+        sh "cd golang-service/src"
       }
     }
     stage("build docker") {
