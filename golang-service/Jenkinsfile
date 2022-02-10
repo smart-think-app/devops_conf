@@ -6,6 +6,7 @@ pipeline {
       steps {
         dir('golang-service/src'){
           echo "git pull code ${gitUrl}"
+          git url: "${gitUrl}", branch: "master"
         }
       }
     }
