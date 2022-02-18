@@ -25,7 +25,7 @@ pipeline {
         dir("golang-testing"){
           echo "git pull code ${gitUrlTest}"
           git url: "${gitUrlTest}", branch: "master" 
-          sh "ls"
+          sh "go env GOCACHE"
         }
       }
     }
