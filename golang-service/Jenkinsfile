@@ -26,6 +26,7 @@ pipeline {
           echo "git pull code ${gitUrlTest}"
           git url: "${gitUrlTest}", branch: "master" 
           sh "go env GOCACHE"
+          echo "$PWD"
         }
       }
     }
