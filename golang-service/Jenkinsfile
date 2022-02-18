@@ -25,7 +25,10 @@ pipeline {
         dir("golang-testing"){
           echo "git pull code ${gitUrlTest}"
           git url: "${gitUrlTest}", branch: "master" 
-          sh "go test"
+          withEnv(["PATH+GO=${GOPATH}/bin"]){
+                    echo 'Running test'
+                    sh 'go test -v'
+                }
         }
       }
     }
