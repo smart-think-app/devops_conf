@@ -1,10 +1,11 @@
 def gitUrl = "https://github.com/smart-think-app/golang-service"
+def gitUrlTest = "https://github.com/smart-think-app/golang-testing"
 pipeline {
   agent any
   stages {
     stage("git pull code") {
       steps {
-        dir('golang-service'){
+        dir("golang-service"){
           echo "git pull code ${gitUrl}"
           git url: "${gitUrl}", branch: "master"
         }
@@ -19,6 +20,11 @@ pipeline {
     stage("integration testing") {
       steps{
         echo "run integration testing"
+        dir("golang-testing"){
+          echo "git pull code ${gitUrlTest}"
+          git url: "${gitUrlTest}", branch: "master" 
+          sh "go test"
+        }
       }
     }
     stage("deploy k8s") {
