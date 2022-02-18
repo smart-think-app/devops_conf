@@ -18,6 +18,7 @@ pipeline {
       }
     }
     stage("integration testing") {
+      agent { docker { image 'golang:1.17.5-alpine' } }
       steps{
         echo "run integration testing"
         sh "go version"
