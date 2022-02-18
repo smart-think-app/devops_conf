@@ -19,6 +19,8 @@ pipeline {
     stage("integration testing") {
       steps{
         sh "docker pull tqhuy1996developer/nodejs-testing:latest"
+        sh "docker network create testing"
+        sh "docker run -itd --network testing tqhuy1996developer/nodejs-testing:latest"
       }
     }
   }
