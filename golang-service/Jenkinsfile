@@ -18,14 +18,13 @@ pipeline {
       }
     }
     stage("integration testing") {
-      agent { docker { image 'golang:1.17.5-alpine' } }
+      agent { docker { image 'golang:1.16-alpine' } }
       steps{
         echo "run integration testing"
         sh "go version"
         dir("golang-testing"){
           echo "git pull code ${gitUrlTest}"
           git url: "${gitUrlTest}", branch: "master" 
-          sh "go get github.com/stretchr/testify "
           sh "go build && go test"
         }
       }
