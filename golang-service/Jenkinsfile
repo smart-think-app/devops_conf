@@ -10,10 +10,20 @@ pipeline {
         }
       }
     }
-    stage("build docker") {
+    stage("build and push docker") {
       steps{
         echo "build docker"
         sh "cd golang-service && ls && docker build -t go-dk1 ."
+      }
+    }
+    stage("integration testing") {
+      steps{
+        echo "run integration testing"
+      }
+    }
+    stage("deploy k8s") {
+      steps{
+        echo "deploy k8s"
       }
     }
   }
