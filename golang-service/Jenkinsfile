@@ -1,7 +1,7 @@
 def gitUrl = "https://github.com/smart-think-app/golang-service"
 def gitUrlTest = "https://github.com/smart-think-app/golang-testing"
 pipeline {
-  agent any
+  agent { docker { image 'golang:1.16-alpine' } }
   stages {
     stage("git pull code") {
       steps {
