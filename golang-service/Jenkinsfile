@@ -2,6 +2,9 @@ def gitUrl = "https://github.com/smart-think-app/golang-service"
 def gitUrlTest = "https://github.com/smart-think-app/golang-testing"
 pipeline {
   agent any
+  environment {
+    GOCACHE = "/tmp/cache"
+  }
   stages {
     stage("git pull code") {
       steps {
