@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/golang:1.16
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
+      - run:
+          name: git clone code
+          command: git clone https://github.com/smart-think-app/golang-service.git
+      - run:
+          name: build docker
+          command:  |
+            docker build -t tqhuy1996developer/go-dk1:latest
+            docker login -u tqhuy1996developer -p Husky@0946515847
+            docker push tqhuy1996developer/go-dk1:latest
+      # - run:
+      #     name: Run tests
+      #     command: go test -v
